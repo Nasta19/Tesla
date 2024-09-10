@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background: transparent;
+    margin-top: -24px;
+    font-size: 14px;
+}
+
+.logo-header {
+    width: 120px;
+    height: 80px;
+    padding-top: 35px;
+    margin-left: 30px;
+}
+
+.mega-menu ol {
+    list-style: none;
+    display: flex; 
+    gap: 20px; 
+    padding: 0;
+}
+
+.mega-menu ol li {
+    display: inline-block;
+}
+
+.icons-header ol {
+    list-style: none;
+    display: flex; 
+    padding: 0;
+}
+
+.icons-header ol li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
