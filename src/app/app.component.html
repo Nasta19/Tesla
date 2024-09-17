@@ -10,29 +10,187 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
   </head>
   <body>
     <header>
-      <div class="menu">
+      <div [ngClass]="menuClass">
         <div class="logo-header">
-          <svg
-            class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon"
-            viewBox="0 0 342 35"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7"
-            ></path>
-          </svg>
+          <a [routerLink]="'/home'">
+            <svg
+              class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon"
+              viewBox="0 0 342 35"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7"
+              ></path>
+            </svg>
+          </a>
         </div>
         <div class="mega-menu">
           <ol>
-            <li class="vehicle-menu">Vehicles</li>
-            <li class="energy-menu">Energy</li>
-            <li class="charging-menu">Charging</li>
-            <li class="discover">Discover</li>
-            <li class="shop">Shop</li>
+            <li class="vehicle-menu" (mouseenter)="showDropdownVehicles()" (mouseenter)="hideDropdownEnergy()" (mouseenter)="hideDropdownCharging()">
+              <a href="#">Vehicles</a>
+              <div class="mega-menu-dropdown" [ngClass]="{'show': isDropdownVisibleVehicles}" (mouseleave)="hideDropdownVehicles()">
+                <div class="vehicle-cards">
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-3-Performance-LHD.png" alt="Model 3" width="200px" height="120px">
+                    <a href="/models">Model S</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png" alt="Model S" width="220px" height="150px">
+                    <a href="#">Model 3</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png" alt="Model X" width="200px" height="120px">
+                    <a href="#">Model X</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-Y.png" alt="Model Y" width="200px" height="120px">
+                    <a href="#">Model Y</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Cybertruck-1x.png" alt="Cybertruck" width="200px" height="120px">
+                    <a href="#">Cybertuck</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-HMC-RedBlue-LHD.png" alt="Help Me Choose" width="200px" height="120px">
+                    <a href="#">Help Me choose</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Get Started</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="dx-mega-menu-panel-divider"></div>
+                <div class="lastInfo">
+                  <p>Inventory</p>
+                  <p>Used Cars</p>
+                  <p>Demo Drive</p>
+                  <p>Trade In</p>
+                  <p>Compare</p>
+                  <p>Help Me Charge</p>
+                  <p>Fleet</p>
+                  <p>Semi</p>
+                  <p>Roadster</p>
+                </div>
+              </div>
+            </li>
+            <li class="energy-menu" (mouseenter)="showDropdownEnergy()" (mouseenter)="hideDropdownVehicles()" (mouseenter)="hideDropdownCharging()">
+              <a href="#">Energy</a>
+              <div class="mega-menu-dropdown" [ngClass]="{'show': isDropdownVisibleEnergy}" (mouseleave)="hideDropdownEnergy()">
+                <div class="vehicle-cards">
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Panels.png" alt="Solar Panels"  width="200px" height="120px">
+                    <a href="#">Solar Panels</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Roof.png" alt="Solar Roof" width="200px" height="120px">
+                    <a href="#">Solar Roof</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Powerwall-US.png" alt="Powerwall" width="200px" height="120px">
+                    <a href="#">Powerwall</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Megapack.png" alt="Megapack" width="200px" height="120px">
+                    <a href="#">Megapack</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="dx-mega-menu-panel-divider"></div>
+                <div class="lastInfo">
+                  <p>Schedule a Consultation</p>
+                  <p>Why Solar</p>
+                  <p>Incentives</p>
+                  <p>Support</p>
+                  <p>Partners with Tesla</p>
+                  <p>Cemmercial</p>
+                  <p>Utilities</p>
+                </div>
+              </div>
+            </li><li class="charging-menu" (mouseenter)="showDropdownCharging()" (mouseenter)="hideDropdownVehicles()" (mouseenter)="hideDropdownEnergy()">
+              <a href="#">Charging</a>
+              <div class="mega-menu-dropdown" [ngClass]="{'show': isDropdownVisibleCharging}" (mouseleave)="hideDropdownCharging()">
+                <div class="charge-cards">
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Charging.png" alt="Charging" alt="Model S" width="200px" height="120px">
+                    <a href="#">Charging</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Home-Charging.png" alt="Home Charging" width="200px" height="120px">
+                    <a href="#">Home Charging</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                  <div class="vehicle-menu-card">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Supercharging-NA.png" alt="Supercharging" width="200px" height="120px">
+                    <a href="#">Super Charging</a>
+                    <div class="learn-order">
+                      <p style="text-decoration: underline;">Learn</p>
+                      <p style="text-decoration: underline;">Order</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="dx-mega-menu-panel-divider"></div>
+                <div class="lastInfoCharge">
+                  <p>Help Me Charge</p>
+                  <p>Charging Calculator</p>
+                  <p>Charging with NACS</p>
+                  <p>Supercharging Voting</p>
+                  <p>Host a Supercharging</p>
+                  <p>Commercial Charging</p>
+                  <p>Fleet</p>
+                </div>
+              </div>
+            </li>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Shop</a></li>
           </ol>
         </div>
         <div class="icons-header">
@@ -56,7 +214,7 @@
               </a>
             </li>
             <li class="language">
-              <img src="../assets/images/language-svgrepo-com.png" alt="">
+              <img src="../assets/images/language-svgrepo-com.png" alt="" />
             </li>
             <li>
               <a

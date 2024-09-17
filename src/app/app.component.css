@@ -1,4 +1,6 @@
-html, body {
+html,
+body {
+    display: block;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -7,50 +9,78 @@ html, body {
     font-family: "Lato", sans-serif;
     font-weight: 700;
     font-style: normal;
-  }
-  
+}
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 .menu {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
     background: transparent;
-    margin-top: -24px;
-    margin-bottom: -12px;
+    margin-top: -10px;
+    margin-bottom: -24px;
     font-size: 14px;
-    z-index: 100; 
+    z-index: 100;
+}
+
+.menu-top-scroll {
+    background-color: rgb(255, 255, 255) !important;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    margin-top: -10px;
+    padding-bottom: -24px;
+    font-size: 14px;
+    z-index: 3;
 }
 
 .menu a {
     color: #fff;
+    text-decoration: none;
+}
+
+.menu-top-scroll a {
+    color: #000 !important;
+    text-decoration: none;
 }
 
 .logo-header {
     width: 120px;
     height: 80px;
-    padding-top: 35px;
+    padding-top: 30px;
     margin-left: 35px;
     color: #fff;
 }
 
 .mega-menu ol {
     list-style: none;
-    display: flex; 
-    gap: 40px; 
+    display: flex;
+    gap: 40px;
     padding: 0;
 }
 
 .mega-menu ol li {
     display: inline-block;
     color: #fff;
+    position: relative;
+    /* For dropdown positioning */
+}
+
+.menu-top-scroll .mega-menu ol li {
+    color: #000 !important;
 }
 
 .icons-header ol {
     list-style: none;
-    display: flex; 
+    display: flex;
     margin-right: 30px;
     gap: 12px;
 }
@@ -60,9 +90,152 @@ html, body {
     height: 22px;
 }
 
-.language img{
+.language img {
     width: 22px;
     height: 22px;
-    color: #fff;
 }
 
+/* Overlay menu*/
+
+.mega-menu-dropdown {
+    position: fixed;
+    top: 5%;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    overflow: hidden;
+    display: none;
+    z-index: 1000;
+    color: #000;
+    overflow: auto;
+}
+
+.mega-menu-dropdown.show {
+    display:flex;
+    width: 100%;
+    padding-bottom: 60px;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: scale-in-ver-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;;
+}
+
+@keyframes scale-in-ver-top {
+    0% {
+      transform: scaleY(0);
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+  }
+  
+
+.mega-menu-dropdown a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.vehicle-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 50px;
+    padding-left: 50px;
+    gap: 50px;
+}
+
+.charge-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 50px;
+    padding-left: 350px;
+    gap: 50px;
+}
+
+.vehicle-menu-card {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fade-in-left 0.6s ease-in-out both;
+}
+
+.vehicle-menu-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .vehicle-menu-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .vehicle-menu-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .vehicle-menu-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .vehicle-menu-card:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .vehicle-menu-card:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes fade-in-left {
+    0% {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+.learn-order {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dx-mega-menu-panel-divider {
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid #2c2e2e59;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-left: 30px;
+    padding-top: 150px;
+    padding-bottom: 170px;
+    min-height: 100%;
+}
+
+.menu-white-background {
+    background-color: white;
+}
+
+.menu-white-background a, p {
+    color: #383737;
+}
+
+.lastInfo {
+    display: grid;
+    margin-right: 150px;
+    gap: 20px;
+    padding-top: 45px;
+}
+
+.lastInfoCharge {
+    display: grid;
+    margin-right: 350px;
+    gap: 20px;
+    padding-top: 45px;
+}

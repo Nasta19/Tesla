@@ -8,6 +8,7 @@ import { CarService } from './services/car.service';
 import { ChargingComponent } from './charging/charging.component';
 import { EnergyComponent } from './energy/energy.component';
 import { HomeComponent } from './home/home.component';
+import { ModelsComponent } from './models/models.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     CarsComponent,
     ChargingComponent,
-    EnergyComponent
+    EnergyComponent,
+    ModelsComponent
   ],
   imports: [
     BrowserModule,
