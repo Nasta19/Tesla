@@ -28,6 +28,26 @@ body {
     z-index: 100;
 }
 
+.menu-design {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    margin-top: -10px;
+    margin-bottom: -24px;
+    font-size: 14px;
+    z-index: 100;
+}
+
+.menu-design .mega-menu{
+    display: none;
+}
+
+.menu-design a {
+    color: #0e0d0d;
+    text-decoration: none;
+}
+
 .menu-top-scroll {
     background-color: rgb(255, 255, 255) !important;
     width: 100%;

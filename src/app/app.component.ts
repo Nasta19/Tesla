@@ -1,4 +1,5 @@
 import { Component, HostListener} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -77,6 +78,18 @@ export class AppComponent {
     if (this.isDropdownVisibleVehicles || this.isDropdownVisibleEnergy || this.isDropdownVisibleCharging) {
       this.menuClass += ' menu-white-background';
     }
+  }
+
+
+  // Funcion para detectar la ruta para cambiar estilos del menu
+  constructor(private router: Router) {}
+  isDesignPage: boolean = false;
+
+  ngOnInit() {
+    // Detectar si la ruta es '/design'
+    this.router.events.subscribe(() => {
+      this.isDesignPage = this.router.url === '/design';
+    });
   }
 }
 

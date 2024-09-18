@@ -17,7 +17,7 @@
   </head>
   <body>
     <header>
-      <div [ngClass]="menuClass">
+      <div [ngClass]="{'menu-design': isDesignPage, 'menu': !isDesignPage}" [ngClass]="menuClass">
         <div class="logo-header">
           <a [routerLink]="'/home'">
             <svg
