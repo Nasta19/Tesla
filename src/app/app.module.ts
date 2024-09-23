@@ -7,7 +7,6 @@ import { CarService } from './services/car.service';
 import { ChargingComponent } from './charging/charging.component';
 import { EnergyComponent } from './energy/energy.component';
 import { HomeComponent } from './home/home.component';
-import { ModelsComponent } from './models/models.component';
 import { DesignComponent } from './design/design.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -18,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
     CarsComponent,
     ChargingComponent,
     EnergyComponent,
-    ModelsComponent,
     DesignComponent
   ],
   imports: [

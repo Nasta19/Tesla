@@ -1,29 +1,23 @@
 section {
-    height: 94vh; /* Altura 100% del viewport */
+    height: 90vh; /* Altura 100% del viewport */
     width: 100%; /* Ancho 100% */
     display: grid;
 }
 
 /*Seccion uno imagen de fondo para que quede abajo del menu*/
-.sectionOne .secImg img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Abarca el 100% del ancho */
-    height: 100vh; /* Abarca el 100% del alto */
-    object-fit: cover; /* Imagen de fondo que ocupa todo el espacio */
-    z-index: -1; /* Para que la imagen quede debajo del menú */
-}
-
-.infoSectionOne{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: white; 
-    margin-top: -250px;
+.sectionOne {
+    position: relative;
+    background-image: url('/assets/images/Homepage-Model-Y-Desktop-US-v2.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ocupar toda la ventana visible */
+    width: 100%;
+    z-index: 0; /* Asegura que esté debajo del menú pero sobre las otras secciones */
+    margin-top: -60px; /* Ajusta para que comience debajo del menú */
 }
 
 .info {
+    margin-top: 5vh;
     text-align: center;
     color: white; 
 }
@@ -52,20 +46,22 @@ h4 {
     padding-block-end: 32px;
 }
 
-button {
-    width: 275px;
-    height: 40px;
+.buttonOrderNow, .buttonDemoDrive {
+    padding: 13px 100px;
     border-radius: 5px;
     border-style: none;
     font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
 }
 
-.orderNow {
+.buttonOrderNow {
     background-color: #3e6ae1;
     color: #fff;
 }
 
-.demoDrive {
+.buttonDemoDrive {
     background-color: #ffffff;
     color: #393c41;
 }
@@ -76,7 +72,7 @@ button {
     background-image: url('/assets/images/Homepage-Model-3-Desktop-US.png');
     background-size: cover; 
     background-position: center; 
-    height: 96vh;
+    height: 100vh;
     width: 100%;
 }
 

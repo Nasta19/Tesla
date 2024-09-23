@@ -1,0 +1,126 @@
+/* Para que la sección ocupe toda la altura de la pantalla */
+section {
+  height: 100vh - 60px;
+  display: flex;
+  align-items: center;
+}
+
+.mainContentAside {
+  margin-top: -30px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  width: 75%; 
+  height: 100%; 
+  position: relative; /* Posicionamiento relativo para flechas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* No permitir scroll en el carrusel */
+}
+
+.carousel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: opacity 0.5s ease;
+  display: none;
+  height: 100%; /* Asegurar que las imágenes ocupen todo el alto disponible */
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%; /* La imagen ocupará todo el ancho del contenedor */
+  height: 100%; /* Asegura que la imagen también ocupe todo el alto */
+}
+
+/* Flechas de navegación */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1; /* Asegura que las flechas estén por encima de las imágenes */
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+/* Aside para los colores */
+.scrollContent {
+  display: grid;
+  width: 25%; /* Ocupa el 25% del ancho */
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Permitir scroll vertical */
+  padding: 20px; /* Ajustar padding para que el contenido esté separado */
+  box-sizing: border-box;
+  -ms-overflow-style: none; /* Ocultar barra de scroll en IE y Edge */
+  scrollbar-width: none; /* Ocultar barra de scroll en Firefox */
+}
+
+.scrollContent::-webkit-scrollbar {
+  display: none; /* Ocultar barra de scroll en Chrome, Safari y Opera */
+}
+
+.model {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.model h1 {
+  font-size: 40px;
+}
+
+.infoModel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.infoModel h3{
+  font-size: 20px;
+  color: #393c41;
+  font-weight: 700;
+  margin-bottom: -6px;
+}
+
+.infoModel p{
+  font-size: 15px;
+  color: #393c41;
+  font-weight: 500;
+}
+
+/* Estilos para los colores */
+.colors {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px; 
+}
