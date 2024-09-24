@@ -1,7 +1,11 @@
 <section>
   <div class="container">
     <div class="mainContentAside">
-      <div class="carousel-container">
+      <div
+        class="carousel-container"
+        (mouseover)="showControls(true)"
+        (mouseleave)="showControls(false)"
+      >
         <div class="carousel">
           <div
             class="carousel-item"
@@ -14,10 +18,18 @@
               class="d-block w-100"
             />
           </div>
-          <button class="carousel-control prev" (click)="prevSlide()">
+          <button
+            class="carousel-control prev"
+            (click)="prevSlide()"
+            [ngClass]="{ show: isControlShow }"
+          >
             &#10094;
           </button>
-          <button class="carousel-control next" (click)="nextSlide()">
+          <button
+            class="carousel-control next"
+            (click)="nextSlide()"
+            [ngClass]="{ show: isControlShow }"
+          >
             &#10095;
           </button>
         </div>
@@ -40,6 +52,41 @@
             </div>
           </div>
         </div>
+        <div class="tabs">
+          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Cash'}" (click)="openTab('Cash')">London</button>
+          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Lease'}" (click)="openTab('Lease')">Paris</button>
+          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Finance'}" (click)="openTab('Finance')">Tokyo</button>
+        </div>
+        <div id="cash" class="tab" *ngIf="activeTab === 'Cash'">
+          <div class="allWheelDrive">
+            <p>All-Wheel Drive</p>
+            <p>$68,490</p>
+          </div>
+          <div class="plaid">
+            <p>Plaid</p>
+            <p>$83,490</p>
+          </div>
+        </div>
+        <div id="lease" class="tab" *ngIf="activeTab === 'Lease'">
+          <div class="allWheelDrive">
+            <p>All-Wheel Drive</p>
+            <p>$1,031 /mo</p>
+          </div>
+          <div class="plaid">
+            <p>Plaid</p>
+            <p>$1,281 /mo</p>
+          </div>
+        </div>
+        <div id="finance" class="tab" *ngIf="activeTab === 'Finance'">
+          <div class="allWheelDrive">
+            <p>All-Wheel Drive</p>
+            <p>$1080 /mo</p>
+          </div>
+          <div class="plaid">
+            <p>Plaid</p>
+            <p>$1,581 /mo</p>
+          </div>
+        </div>
         <div class="colors">
           <img
             class="sStealthGrey"
@@ -55,6 +102,14 @@
             alt=""
             width="36px"
             (click)="paintCar(sPearlWhiteMultiCoat)"
+            style="cursor: pointer"
+          />
+          <img
+            class="sDeepBlueMetallic"
+            src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3/UI/Paint_Blue.png?"
+            alt=""
+            width="36px"
+            (click)="paintCar(sDeepBlueMetallic)"
             style="cursor: pointer"
           />
         </div>

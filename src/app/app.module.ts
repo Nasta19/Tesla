@@ -9,6 +9,7 @@ import { EnergyComponent } from './energy/energy.component';
 import { HomeComponent } from './home/home.component';
 import { DesignComponent } from './design/design.component';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CarService],
+  providers: [CarService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

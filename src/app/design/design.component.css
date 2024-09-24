@@ -49,15 +49,24 @@ section {
 
 /* Flechas de navegación */
 .carousel-control {
+  opacity: 0; /* Cambiar a usar opacidad para suavizar la transición */
+  visibility: hidden; /* Evita que los controles sean seleccionables cuando están ocultos */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Suaviza la transición */
+}
+
+.carousel-control.show {
+  opacity: 1;
+  visibility: visible; /* Mostrar controles cuando están activos */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgba(151, 149, 149, 0.315);
+  color: rgb(49, 48, 48);
   border: none;
   cursor: pointer;
-  padding: 10px;
-  z-index: 1; /* Asegura que las flechas estén por encima de las imágenes */
+  padding: 5px 10px;
+  border-radius: 3px;
+  z-index: 1;
 }
 
 .carousel-control.prev {
@@ -74,7 +83,6 @@ section {
   width: 25%; /* Ocupa el 25% del ancho */
   height: 100%;
   align-items: center;
-  justify-content: center;
   overflow-y: auto; /* Permitir scroll vertical */
   padding: 20px; /* Ajustar padding para que el contenido esté separado */
   box-sizing: border-box;
@@ -106,7 +114,7 @@ section {
 }
 
 .infoModel h3{
-  font-size: 20px;
+  font-size: 18px;
   color: #393c41;
   font-weight: 700;
   margin-bottom: -6px;
@@ -116,6 +124,46 @@ section {
   font-size: 15px;
   color: #393c41;
   font-weight: 500;
+}
+
+/* Tab */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.buttonTab {
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  transition: border-bottom 0.3s ease;
+  background: transparent;
+}
+
+.buttonTab.active {
+  border-bottom: 3px solid black; 
+}
+
+.allWheelDrive, .plaid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  border: 1px solid #393c41a8;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.allWheelDrive p, .plaid p {
+  font-size: 14px;
+  margin: 0;
+  padding-left: 10px;
 }
 
 /* Estilos para los colores */

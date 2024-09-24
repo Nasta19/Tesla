@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../services/car.service'
 
+
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
@@ -49,6 +50,14 @@ export class DesignComponent implements OnInit {
     { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
   ];
 
+  sDeepBlueMetallic = [
+    { src: 'http://localhost:5000/uploads/1727204193317-DeepBlueMetallic.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727204201651-DeepBlueMetallic2.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727204209222-DeepBlueMetallic3.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727204216332-DeepBlueMetallic4.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
+  ];
+
   //Carousel
   currentSlide = 0;
 
@@ -72,5 +81,17 @@ export class DesignComponent implements OnInit {
     setInterval(() => {
       this.nextSlide();
     }, 20000);
+  }
+
+  // Esconder y aparecer controles del slide
+  isControlShow = false;
+  showControls(show: boolean): void {
+    this.isControlShow = show;
+  }
+
+  activeTab: string = 'Cash'; 
+  // Método para cambiar la tab activa
+  openTab(tabName: string): void {
+    this.activeTab = tabName;
   }
 }
