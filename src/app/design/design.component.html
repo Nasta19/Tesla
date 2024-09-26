@@ -53,39 +53,91 @@
           </div>
         </div>
         <div class="tabs">
-          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Cash'}" (click)="openTab('Cash')">London</button>
-          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Lease'}" (click)="openTab('Lease')">Paris</button>
-          <button class="buttonTab" [ngClass]="{'active': activeTab === 'Finance'}" (click)="openTab('Finance')">Tokyo</button>
+          <button
+            class="buttonTab"
+            [ngClass]="{ active: activeTab === 'Cash' }"
+            (click)="openTab('Cash')"
+          >
+            Cash
+          </button>
+          <button
+            class="buttonTab"
+            [ngClass]="{ active: activeTab === 'Lease' }"
+            (click)="openTab('Lease')"
+          >
+            Lease
+          </button>
+          <button
+            class="buttonTab"
+            [ngClass]="{ active: activeTab === 'Finance' }"
+            (click)="openTab('Finance')"
+          >
+            Finance
+          </button>
         </div>
         <div id="cash" class="tab" *ngIf="activeTab === 'Cash'">
-          <div class="allWheelDrive">
+          <div
+            class="allWheelDrive"
+            [ngClass]="{ active: activeTabOption === 'allWheelDrive' }"
+            (click)="openTabOption('allWheelDrive')"
+          >
             <p>All-Wheel Drive</p>
             <p>$68,490</p>
           </div>
-          <div class="plaid">
+          <div
+            class="plaid"
+            [ngClass]="{ active: activeTabOption === 'plaid' }"
+            (click)="openTabOption('plaid')"
+          >
             <p>Plaid</p>
             <p>$83,490</p>
           </div>
         </div>
         <div id="lease" class="tab" *ngIf="activeTab === 'Lease'">
-          <div class="allWheelDrive">
+          <div
+            class="allWheelDrive"
+            [ngClass]="{ active: activeTabOption === 'allWheelDrive' }"
+            (click)="openTabOption('allWheelDrive')"
+          >
             <p>All-Wheel Drive</p>
             <p>$1,031 /mo</p>
           </div>
-          <div class="plaid">
+          <div
+            class="plaid"
+            [ngClass]="{ active: activeTabOption === 'plaid' }"
+            (click)="openTabOption('plaid')"
+          >
             <p>Plaid</p>
             <p>$1,281 /mo</p>
           </div>
         </div>
         <div id="finance" class="tab" *ngIf="activeTab === 'Finance'">
-          <div class="allWheelDrive">
+          <div
+            class="allWheelDrive"
+            [ngClass]="{ active: activeTabOption === 'allWheelDrive' }"
+            (click)="openTabOption('allWheelDrive')"
+          >
             <p>All-Wheel Drive</p>
             <p>$1080 /mo</p>
           </div>
-          <div class="plaid">
+          <div
+            class="plaid"
+            [ngClass]="{ active: activeTabOption === 'plaid' }"
+            (click)="openTabOption('plaid')"
+          >
             <p>Plaid</p>
             <p>$1,581 /mo</p>
           </div>
+        </div>
+        <div class="gasSavingCheck">
+          <input type="checkbox" name="gasSaving" id="gasSaving" /><label
+            for="gasSaving"
+            >Include est. 5-year gas savings of $6,500</label
+          >
+        </div>
+        <div class="textColors">
+          <p>Included</p>
+          <span class="colorName">Stealth Grey</span>
         </div>
         <div class="colors">
           <img

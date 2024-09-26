@@ -14,13 +14,13 @@ section {
 }
 
 .carousel-container {
-  width: 75%; 
+  width: calc(100% - 25%); /* Resta el ancho del aside */
   height: 100%; 
-  position: relative; /* Posicionamiento relativo para flechas */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* No permitir scroll en el carrusel */
+  overflow: hidden;
 }
 
 .carousel {
@@ -43,8 +43,9 @@ section {
 }
 
 .carousel-item img {
-  width: 100%; /* La imagen ocupará todo el ancho del contenedor */
-  height: 100%; /* Asegura que la imagen también ocupe todo el alto */
+  width: 100%;
+  max-width: 100%; /* Limita el ancho al 100% del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
 /* Flechas de navegación */
@@ -84,7 +85,6 @@ section {
   height: 100%;
   align-items: center;
   overflow-y: auto; /* Permitir scroll vertical */
-  padding: 20px; /* Ajustar padding para que el contenido esté separado */
   box-sizing: border-box;
   -ms-overflow-style: none; /* Ocultar barra de scroll en IE y Edge */
   scrollbar-width: none; /* Ocultar barra de scroll en Firefox */
@@ -99,7 +99,8 @@ section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
+  padding-top: 50px;
 }
 
 .model h1 {
@@ -138,32 +139,81 @@ section {
   border: none;
   padding: 10px 30px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   outline: none;
   transition: border-bottom 0.3s ease;
   background: transparent;
+  border-bottom: 1px solid rgb(44, 43, 43);
 }
 
 .buttonTab.active {
-  border-bottom: 3px solid black; 
+  border-bottom: 2.5px solid rgb(44, 43, 43); 
 }
 
 .allWheelDrive, .plaid {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-right: 10px;
-  border: 1px solid #393c41a8;
-  margin-right: 40px;
-  margin-left: 40px;
+  border: 1px solid #49494b50;
+  margin-right: 70px;
+  margin-left: 70px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .allWheelDrive p, .plaid p {
-  font-size: 14px;
+  font-size: 13px;
   margin: 0;
   padding-left: 10px;
+  color: #5c5e62
+}
+
+.allWheelDrive.active {
+  background-color: #dfdfdf83;
+  font-weight: 600;
+}
+
+.plaid.active {
+  background-color: #dfdfdf83;
+}
+
+.gasSavingCheck {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  margin-top: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+}
+
+#gasSaving {
+  margin-right: 5px;
+}
+
+.textColors {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 15vh;
+  margin-bottom: 20px;
+}
+
+.textColors p{
+  font-size: 15px;
+  color: #5c5e62
+}
+
+.colorName {
+  font-size: 20px;
 }
 
 /* Estilos para los colores */
@@ -171,4 +221,5 @@ section {
   display: flex;
   flex-wrap: nowrap;
   gap: 10px; 
+  justify-content: center;
 }

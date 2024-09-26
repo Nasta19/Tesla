@@ -94,4 +94,10 @@ export class DesignComponent implements OnInit {
   openTab(tabName: string): void {
     this.activeTab = tabName;
   }
+
+  activeTabOption: string = 'allWheelDrive'; 
+  // Método para cambiar la tab activa
+  openTabOption(tabName: string): void {
+    this.activeTabOption = tabName;
+  }
 }
