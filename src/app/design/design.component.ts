@@ -30,7 +30,7 @@ export class DesignComponent implements OnInit {
 
   ngOnInit(): void {
     this.slides = this.sStealthGrey; // Inicializar el carrusel con un color por defecto
-    this.autoSlide(); // Iniciar el deslizamiento automático
+    /*this.autoSlide();*/ // Iniciar el deslizamiento automático
   }
   
   // Colores autos 
@@ -58,6 +58,30 @@ export class DesignComponent implements OnInit {
     { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
   ];
 
+  sSolidBlack = [
+    { src: 'http://localhost:5000/uploads/1727981615309-S-SolidBlack.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981607529-S-SolidBlack2.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981600711-S-SolidBlack3.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981594947-S-SolidBlack4.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
+  ];
+
+  sUltraRed = [
+    { src: 'http://localhost:5000/uploads/1727981589048-S-UltraRed.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981580783-S-UltraRed2.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981565337-S-UltraRed3.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981559783-S-UltraRed4.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
+  ];
+
+  sLunarSilver = [
+    { src: 'http://localhost:5000/uploads/1727981462832-S-LunarSilver.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981478538-S-LunarSilver2.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981543916-S-LunarSilver3.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1727981552663-S-LunarSilver4.png', title: ''},
+    { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: ''}
+  ];
+
   //Carousel
   currentSlide = 0;
 
@@ -77,12 +101,13 @@ export class DesignComponent implements OnInit {
   }
 
   // Deslizar automáticamente cada 5 segundos
+  /*
   autoSlide(): void {
     setInterval(() => {
       this.nextSlide();
     }, 20000);
   }
-
+  */
   // Esconder y aparecer controles del slide
   isControlShow = false;
   showControls(show: boolean): void {

@@ -1,6 +1,5 @@
 /* Para que la sección ocupe toda la altura de la pantalla */
 section {
-  height: 100vh - 60px;
   display: flex;
   align-items: center;
 }
@@ -33,9 +32,10 @@ section {
 
 .carousel-item {
   min-width: 100%;
-  transition: opacity 0.5s ease;
   display: none;
-  height: 100%; /* Asegurar que las imágenes ocupen todo el alto disponible */
+  height: 100%; 
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .carousel-item.active {
@@ -44,13 +44,13 @@ section {
 
 .carousel-item img {
   width: 100%;
-  max-width: 100%; /* Limita el ancho al 100% del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 100%; 
+  height: auto; 
 }
 
 /* Flechas de navegación */
 .carousel-control {
-  opacity: 0; /* Cambiar a usar opacidad para suavizar la transición */
+  opacity: 0; 
   visibility: hidden; /* Evita que los controles sean seleccionables cuando están ocultos */
   transition: opacity 0.3s ease, visibility 0.3s ease; /* Suaviza la transición */
 }
@@ -68,6 +68,14 @@ section {
   padding: 5px 10px;
   border-radius: 3px;
   z-index: 1;
+}
+
+.carousel-item.ng-leave, .carousel-item.ng-leave-active {
+  opacity: 0;
+}
+
+.carousel-item.ng-enter, .carousel-item.ng-enter-active {
+  opacity: 1;
 }
 
 .carousel-control.prev {
@@ -183,8 +191,7 @@ section {
 .gasSavingCheck {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 15px;
   margin-top: 7px;
   cursor: pointer;
   font-size: 15px;
@@ -193,6 +200,12 @@ section {
   -ms-user-select: none;
   user-select: none;
   text-align: center;
+}
+
+.gasSavingCheck label {
+  align-items: center;
+  font-size: 14px;
+  color: #5c5e62
 }
 
 #gasSaving {
@@ -220,6 +233,47 @@ section {
 .colors {
   display: flex;
   flex-wrap: nowrap;
-  gap: 10px; 
+  gap: 13px; 
   justify-content: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0; /* Mantener el footer pegado a la parte inferior de la pantalla */
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: white; 
+  z-index: 1000; 
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Asegura que haya un espacio flexible entre los elementos */
+  padding: 20px 25px;
+  margin-right: 60px;
+  gap: 100px; 
+  box-shadow: 0 -2px 8px 0 #cdcecf;
+}
+
+.priceOrder button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3e6ae1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonMsg button{
+  width: 56px;
+  height: 48px;
+  color: white;
+  margin-left: 25px;
+  border: none;
+  border-radius: 5px;
 }

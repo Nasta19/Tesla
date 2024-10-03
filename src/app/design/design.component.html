@@ -40,7 +40,7 @@
           <div class="infoModel">
             <div class="range">
               <h3>402mi</h3>
-              <p>Range(EPA est.)</p>
+              <p>Range (EPA est.)</p>
             </div>
             <div class="topSpeed">
               <h3>130mph</h3>
@@ -164,9 +164,47 @@
             (click)="paintCar(sDeepBlueMetallic)"
             style="cursor: pointer"
           />
+          <img
+            class="sSolidBlack"
+            src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3/UI/Paint_Black.png?"
+            alt=""
+            width="36px"
+            (click)="paintCar(sSolidBlack)"
+            style="cursor: pointer"
+          />
+          <img
+            class="sUltraRed"
+            src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODELS/UI/Red_Paint_R2.png?"
+            alt=""
+            width="36px"
+            (click)="paintCar(sUltraRed)"
+            style="cursor: pointer"
+          />
+          <img
+            class="sLunarSilver"
+            src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODELS/UI/LSilverPaint.png?"
+            alt=""
+            width="36px"
+            (click)="paintCar(sLunarSilver)"
+            style="cursor: pointer"
+          />
         </div>
       </aside>
     </div>
   </div>
-  <div class="footerPrice"></div>
 </section>
+<footer>
+  <div class="buttonMsg">
+    <button>
+      <img src="../assets/images/chat-bubble.png" alt="" width="20px" height="20px">
+    </button>
+  </div>
+  <div class="priceContainer">
+    <div class="price">
+      <span>$68.490</span>
+    </div>
+    <div class="priceOrder">
+      <button>Order Now</button>
+    </div>
+  </div>
+</footer>
