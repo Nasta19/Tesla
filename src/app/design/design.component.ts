@@ -136,7 +136,12 @@ export class DesignComponent implements OnInit {
     deepBlue: 1500,
     solidBlack: 1500,
     ultraRed: 2500,
-    lunarSilver: 2500
+    lunarSilver: 2500,
+    leasePearlWhite: 28,
+    leaseDeepBlue: 28,
+    leaseSolidBlack: 28,
+    leaseUltraRed: 38,
+    leaseLunarSilver: 38
   };
 
   // Función para cambiar el modelo del auto
@@ -153,6 +158,7 @@ export class DesignComponent implements OnInit {
 
   // Función para calcular el precio total
   sumTotal() {
+    // Si la tab Cash esta activa
     if (this.activeTab === 'Cash') {
       this.finalPrice =
         this.activeTabOption === 'plaid'
@@ -161,7 +167,18 @@ export class DesignComponent implements OnInit {
       if (!this.gasSavingChecked) {
         this.finalPrice += this.optionsPrices.gasSaving;
       }
-    } else if (this.activeTab === 'Lease') {
+      if (this.currentColor === 'sPearlWhiteMultiCoat') {
+        this.finalPrice += this.optionsPrices.pearlWhite;
+      } else if (this.currentColor === 'sDeepBlueMetallic') {
+        this.finalPrice += this.optionsPrices.deepBlue;
+      } else if (this.currentColor === 'sSolidBlack') {
+        this.finalPrice += this.optionsPrices.solidBlack;
+      } else if (this.currentColor === 'sUltraRed') {
+        this.finalPrice += this.optionsPrices.ultraRed;
+      } else if (this.currentColor === 'sLunarSilver') {
+        this.finalPrice += this.optionsPrices.lunarSilver;
+      }
+    } else if (this.activeTab === 'Lease') {  // Si la tab Lease esta activa
       this.finalPrice =
         this.activeTabOption === 'plaid'
           ? this.optionsPrices.leasePlaid
@@ -169,7 +186,18 @@ export class DesignComponent implements OnInit {
       if (!this.gasSavingChecked) {
         this.finalPrice += this.optionsPrices.gasSavingMonth;
       }
-    } else if (this.activeTab === 'Finance') {
+      if (this.currentColor === 'sPearlWhiteMultiCoat') {
+        this.finalPrice += this.optionsPrices.leasePearlWhite;
+      } else if (this.currentColor === 'sDeepBlueMetallic') {
+        this.finalPrice += this.optionsPrices.leaseDeepBlue;
+      } else if (this.currentColor === 'sSolidBlack') {
+        this.finalPrice += this.optionsPrices.leaseSolidBlack;
+      } else if (this.currentColor === 'sUltraRed') {
+        this.finalPrice += this.optionsPrices.leaseUltraRed;
+      } else if (this.currentColor === 'sLunarSilver') {
+        this.finalPrice += this.optionsPrices.leaseLunarSilver;
+      }
+    } else if (this.activeTab === 'Finance') { // Si la tab Finance esta activa
       this.finalPrice =
         this.activeTabOption === 'plaid'
           ? this.optionsPrices.financePlaid
@@ -177,19 +205,18 @@ export class DesignComponent implements OnInit {
       if (!this.gasSavingChecked) {
         this.finalPrice += this.optionsPrices.gasSavingMonth;
       }
+      if (this.currentColor === 'sPearlWhiteMultiCoat') {
+        this.finalPrice += this.optionsPrices.leasePearlWhite;
+      } else if (this.currentColor === 'sDeepBlueMetallic') {
+        this.finalPrice += this.optionsPrices.leaseDeepBlue;
+      } else if (this.currentColor === 'sSolidBlack') {
+        this.finalPrice += this.optionsPrices.leaseSolidBlack;
+      } else if (this.currentColor === 'sUltraRed') {
+        this.finalPrice += this.optionsPrices.leaseUltraRed;
+      } else if (this.currentColor === 'sLunarSilver') {
+        this.finalPrice += this.optionsPrices.leaseLunarSilver;
+      }
     } 
-
-    if (this.currentColor === 'sPearlWhiteMultiCoat') {
-      this.finalPrice += this.optionsPrices.pearlWhite;
-    } else if (this.currentColor === 'sDeepBlueMetallic') {
-      this.finalPrice += this.optionsPrices.deepBlue;
-    } else if (this.currentColor === 'sSolidBlack') {
-      this.finalPrice += this.optionsPrices.solidBlack;
-    } else if (this.currentColor === 'sUltraRed') {
-      this.finalPrice += this.optionsPrices.ultraRed;
-    } else if (this.currentColor === 'sLunarSilver') {
-      this.finalPrice += this.optionsPrices.lunarSilver;
-    }
   }
 
   // Función para activar/desactivar ahorro de gasolina
