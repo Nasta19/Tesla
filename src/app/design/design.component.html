@@ -100,7 +100,7 @@
             (click)="openTabOption('allWheelDrive')"
           >
             <p>All-Wheel Drive</p>
-            <p>$1,031 /mo</p>
+            <p>$891 /mo</p>
           </div>
           <div
             class="plaid"
@@ -108,7 +108,7 @@
             (click)="openTabOption('plaid')"
           >
             <p>Plaid</p>
-            <p>$1,281 /mo</p>
+            <p>$1,041 /mo</p>
           </div>
         </div>
         <div id="finance" class="tab" *ngIf="activeTab === 'Finance'">
@@ -118,7 +118,7 @@
             (click)="openTabOption('allWheelDrive')"
           >
             <p>All-Wheel Drive</p>
-            <p>$1080 /mo</p>
+            <p>$1070 /mo</p>
           </div>
           <div
             class="plaid"
@@ -126,12 +126,18 @@
             (click)="openTabOption('plaid')"
           >
             <p>Plaid</p>
-            <p>$1,581 /mo</p>
+            <p>$1,314 /mo</p>
           </div>
         </div>
         <div class="gasSavingCheck">
-          <input type="checkbox" name="gasSaving" id="gasSaving" /><label
-            for="gasSaving"
+          <input
+            type="checkbox"
+            name="gasSaving"
+            checked="checked"
+            [(ngModel)]="gasSavingChecked"
+            (ngModelChange)="toggleGasSaving()"
+          />
+          <label for="gasSaving"
             >Include est. 5-year gas savings of $6,500</label
           >
         </div>
@@ -145,7 +151,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3_/UI/Paint_StealthGrey.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sStealthGrey)"
+            (click)="paintCar(sStealthGrey, 'sStealthGrey')"
             style="cursor: pointer"
           />
           <img
@@ -153,7 +159,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3/UI/Paint_White.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sPearlWhiteMultiCoat)"
+            (click)="paintCar(sPearlWhiteMultiCoat, 'sPearlWhiteMultiCoat')"
             style="cursor: pointer"
           />
           <img
@@ -161,7 +167,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3/UI/Paint_Blue.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sDeepBlueMetallic)"
+            (click)="paintCar(sDeepBlueMetallic, 'sDeepBlueMetallic')"
             style="cursor: pointer"
           />
           <img
@@ -169,7 +175,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODEL3/UI/Paint_Black.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sSolidBlack)"
+            (click)="paintCar(sSolidBlack, 'sSolidBlack')"
             style="cursor: pointer"
           />
           <img
@@ -177,7 +183,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODELS/UI/Red_Paint_R2.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sUltraRed)"
+            (click)="paintCar(sUltraRed, 'sUltraRed')"
             style="cursor: pointer"
           />
           <img
@@ -185,7 +191,7 @@
             src="https://digitalassets.tesla.com/co1n/image/upload/f_auto,q_auto/prod/static_assets/MODELS/UI/LSilverPaint.png?"
             alt=""
             width="36px"
-            (click)="paintCar(sLunarSilver)"
+            (click)="paintCar(sLunarSilver, 'sLunarSilver')"
             style="cursor: pointer"
           />
         </div>
@@ -196,12 +202,34 @@
 <footer>
   <div class="buttonMsg">
     <button>
-      <img src="../assets/images/chat-bubble.png" alt="" width="20px" height="20px">
+      <img
+        src="../assets/images/chat-bubble.png"
+        alt=""
+        width="20px"
+        height="20px"
+      />
     </button>
   </div>
   <div class="priceContainer">
-    <div class="price">
-      <span>$68.490</span>
+    <div class="prices">
+      <div class="amount">
+        <span #priceRef>{{ finalPrice | currency : "USD" }}</span>
+        <svg
+          class="tds-icon tds-icon--inline tds-icon-chevron-180"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24px"
+          height="24px"
+        >
+          <path
+            fill="currentColor"
+            d="m4.22 8.943 7.232 7.213a.75.75 0 0 0 1.06 0l7.268-7.25a.75.75 0 0 0-1.06-1.062l-6.739 6.721L5.28 7.881a.75.75 0 0 0-1.06 1.062"
+          ></path>
+        </svg>
+      </div>
+      <div>
+        <p>after est. savings</p>
+      </div>
     </div>
     <div class="priceOrder">
       <button>Order Now</button>

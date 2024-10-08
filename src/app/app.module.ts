@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { DesignComponent } from './design/design.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     CarsComponent,
     ChargingComponent,
     EnergyComponent,
-    DesignComponent
+    DesignComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [CarService, provideAnimationsAsync()],
   bootstrap: [AppComponent]

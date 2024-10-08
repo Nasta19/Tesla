@@ -205,11 +205,8 @@ section {
 .gasSavingCheck label {
   align-items: center;
   font-size: 14px;
-  color: #5c5e62
-}
-
-#gasSaving {
-  margin-right: 5px;
+  color: #5c5e62;
+  margin-left: 5px;
 }
 
 .textColors {
@@ -222,7 +219,7 @@ section {
 
 .textColors p{
   font-size: 15px;
-  color: #5c5e62
+  color: #5c5e62;
 }
 
 .colorName {
@@ -253,15 +250,17 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Asegura que haya un espacio flexible entre los elementos */
-  padding: 20px 25px;
-  margin-right: 60px;
+  padding: 10px 25px;
+  margin-right: 45px;
   gap: 100px; 
   box-shadow: 0 -2px 8px 0 #cdcecf;
+  border-radius: 5px;
 }
 
 .priceOrder button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 13px 27px;
+  font-size: 14px;
+  font-weight: 700;
   background-color: #3e6ae1;
   color: #fff;
   border: none;
@@ -269,11 +268,42 @@ footer {
   cursor: pointer;
 }
 
+.amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amount svg{
+  margin-left: 5px;
+}
+
+.priceContainer p {
+  font-size: 12.5px;
+  color: #5c5e62;
+}
+
+.prices span {
+  font-size: 21px;
+}
+
 .buttonMsg button{
   width: 56px;
   height: 48px;
-  color: white;
   margin-left: 25px;
   border: none;
   border-radius: 5px;
+  animation: changeBackgroundColor 7s infinite;
+}
+
+@keyframes changeBackgroundColor {
+  0% {
+    background-color: #dee4ebcb;
+  }
+  50% {
+    background-color: #3f3c3ce0;
+  }
+  100% {
+    background-color: #dee4ebcb;
+  }
 }
