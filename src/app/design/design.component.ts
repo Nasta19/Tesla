@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2, HostListener, AfterViewInit } from '@angular/core';
 import { CarService } from '../services/car.service'
 
 @Component({
@@ -7,10 +7,24 @@ import { CarService } from '../services/car.service'
   styleUrl: './design.component.css',
 })
 
-export class DesignComponent implements OnInit {
+export class DesignComponent implements AfterViewInit {
   cars: any[] = []; // Almacenar los coches obtenidos del backend
 
   constructor(private carService: CarService, private renderer: Renderer2) { }
+
+  @ViewChild('scrollableAside') scrollableAside!: ElementRef;
+  ngAfterViewInit() {
+    this.scrollableAside.nativeElement.addEventListener('scroll', () => {
+      const { scrollTop, scrollHeight, clientHeight } = this.scrollableAside.nativeElement;
+
+      // Cambia a video si se llega al final del div
+      if (scrollTop + clientHeight >= scrollHeight) {
+        this.isVideo = true; // Cambiar a video
+      } else {
+        this.isVideo = false; // Cambiar a imágenes
+      }
+    });
+  }
 
   getCars() {
     this.carService.getCars().subscribe(response => {
@@ -18,6 +32,17 @@ export class DesignComponent implements OnInit {
     }, error => {
       console.error('Error al obtener los coches:', error);
     });
+  }
+
+  // Escuchar el scroll en toda la ventana
+  @HostListener('window:wheel', ['$event'])
+  onWindowScroll(event: WheelEvent) {
+    // Redirigir el evento de scroll al aside
+    if (this.scrollableAside) {
+      event.preventDefault(); // Prevenir el scroll de la ventana
+      const delta = event.deltaY; // Obtener la cantidad de desplazamiento
+      this.scrollableAside.nativeElement.scrollTop += delta; // Desplazar el aside
+    }
   }
 
   // Funcion para cambiar el color del auto
@@ -28,11 +53,13 @@ export class DesignComponent implements OnInit {
     this.slides = color;
     this.currentColor = colorName;
     this.sumTotal(); //Recalcular el precio total
+    this.changeColorNamePrice();
   }
 
   ngOnInit(): void {
     this.slides = this.sStealthGrey; // Inicializar el carrusel con un color por defecto
     /*this.autoSlide();*/ // Iniciar el deslizamiento automático
+    window.addEventListener('scroll', this.onScroll.bind(this));
   }
 
   // Colores autos 
@@ -84,17 +111,70 @@ export class DesignComponent implements OnInit {
     { src: 'http://localhost:5000/uploads/1726947982258-sStealthGrey5.png', title: '' }
   ];
 
+  //FUNCIONES VIDEO
+  isVideo: boolean = false;
+  video = [
+    { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/autopark_m3.mp4', title: '' },
+    { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/lane_change_m3.mp4', title: '' },
+    { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/navigate-on-autopilot-m3.mp4', title: '' },
+  ];
+  onScroll(): void {
+    const scrollTop = window.scrollY + window.innerHeight; // Obtener la posición actual del scroll
+    const docHeight = document.documentElement.scrollHeight; // Altura total del documento
+
+    // Comprobar si se ha llegado al final del documento
+    if (scrollTop >= docHeight - 20) { // Un margen de 10px para detectar el final
+      this.isVideo = true; // Cambiar a videos
+    } else {
+      this.isVideo = false; // Volver a imágenes
+    }
+  }
+  
+  // Cambiar titulo al color elegido 
+  @ViewChild('colorsName') colorsName!: ElementRef;
+  @ViewChild('colorsPrice') colorsPrice!: ElementRef;
+
+  changeColorNamePrice(): void{
+    if (this.currentColor === 'sPearlWhiteMultiCoat'){
+      this.colorsName.nativeElement.innerHTML = 'Pearl White Multi Coat';
+      this.colorsPrice.nativeElement.innerHTML = '$ 1,500.00';
+    } else if (this.currentColor === 'sDeepBlueMetallic'){
+      this.colorsName.nativeElement.innerHTML = 'Deep Blue Metallic';
+      this.colorsPrice.nativeElement.innerHTML = '$ 1,500.00';
+    } else if (this.currentColor === 'sSolidBlack'){
+      this.colorsName.nativeElement.innerHTML = 'Solid Black';
+      this.colorsPrice.nativeElement.innerHTML = '$ 1,500.00';
+    } else if (this.currentColor === 'sUltraRed'){
+      this.colorsName.nativeElement.innerHTML = 'Ultra Red';
+      this.colorsPrice.nativeElement.innerHTML = '$ 2,500.00';
+    } else if (this.currentColor === 'sLunarSilver'){
+      this.colorsName.nativeElement.innerHTML = 'Lunar Silver';
+      this.colorsPrice.nativeElement.innerHTML = '$ 2,500.00';
+    } else {
+      this.colorsName.nativeElement.innerHTML = 'Stealth Grey';
+      this.colorsPrice.nativeElement.innerHTML = 'Included';
+    }
+  }
+
   //Carousel
   currentSlide = 0;
 
-  // Cambiar a la siguiente imagen
+  // Método para avanzar a la siguiente imagen/video
   nextSlide(): void {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    if (this.isVideo) {
+      this.currentSlide = (this.currentSlide + 1) % this.video.length; // Cambiar entre videos
+    } else {
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length; // Cambiar entre imágenes
+    }
   }
 
-  // Cambiar a la imagen anterior
+  // Método para retroceder a la imagen/video anterior
   prevSlide(): void {
-    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    if (this.isVideo) {
+      this.currentSlide = (this.currentSlide - 1 + this.video.length) % this.video.length; // Cambiar entre videos
+    } else {
+      this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length; // Cambiar entre imágenes
+    }
   }
 
   // Saltar a una imagen específica
@@ -122,6 +202,8 @@ export class DesignComponent implements OnInit {
   activeTab: string = 'Cash'; // Opción de financiamiento por defecto
   activeTabOption: string = 'allWheelDrive'; // Modelo por defecto
   gasSavingChecked: boolean = true; // Estado inicial del checkbox de ahorro de gasolina
+  autoFullDriveChecked: boolean = false; 
+  autoDriveChecked: boolean = false; 
   finalPrice: number = this.basePrice;
 
   optionsPrices = {
@@ -141,7 +223,9 @@ export class DesignComponent implements OnInit {
     leaseDeepBlue: 28,
     leaseSolidBlack: 28,
     leaseUltraRed: 38,
-    leaseLunarSilver: 38
+    leaseLunarSilver: 38,
+    autoFullDrive: 8000,
+    autoDrive: 5000
   };
 
   // Función para cambiar el modelo del auto
@@ -216,11 +300,25 @@ export class DesignComponent implements OnInit {
       } else if (this.currentColor === 'sLunarSilver') {
         this.finalPrice += this.optionsPrices.leaseLunarSilver;
       }
-    } 
+    }
+    
+    if (this.autoFullDriveChecked) {
+      this.finalPrice += this.optionsPrices.autoFullDrive;
+    } else if (this.autoDriveChecked) {
+      this.finalPrice += this.optionsPrices.autoDrive;
+    }
   }
 
   // Función para activar/desactivar ahorro de gasolina
   toggleGasSaving() {
+    this.sumTotal();
+  }
+
+  toggleFullDriveOption() {
+    this.sumTotal();
+  }
+
+  toggleDriveOption() {
     this.sumTotal();
   }
 }

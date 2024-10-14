@@ -1,4 +1,4 @@
-import { Component, HostListener} from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private router: Router){}
 
   lastScrollTop = 0;
   menuClass = 'menu'; // Clase predeterminada del menú
@@ -80,16 +82,9 @@ export class AppComponent {
     }
   }
 
-
-  // Funcion para detectar la ruta para cambiar estilos del menu
-  constructor(private router: Router) {}
-  isDesignPage: boolean = false;
-
-  ngOnInit() {
-    // Detectar si la ruta es '/design'
-    this.router.events.subscribe(() => {
-      this.isDesignPage = this.router.url === '/design';
-    });
+  // Funcion para ignorar menu en /desing
+  isDesignRoute(): boolean {
+    return this.router.url === '/design';
   }
 }
 

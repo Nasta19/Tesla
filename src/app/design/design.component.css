@@ -1,24 +1,31 @@
-/* Para que la sección ocupe toda la altura de la pantalla */
+header{
+  height: 60px;
+  align-items: center;
+}
+
+.logo-header {
+  width: 120px;
+  padding-top: 20px;
+  margin-left: 35px;
+  z-index: 3000;
+}
+
+.logo-header a {
+  color: #000;
+}
+
 section {
   display: flex;
   align-items: center;
 }
 
 .mainContentAside {
-  margin-top: -30px;
   display: flex;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
 }
 
 .carousel-container {
-  width: calc(100% - 25%); /* Resta el ancho del aside */
-  height: 100%; 
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  height: 100vh; 
   overflow: hidden;
 }
 
@@ -32,20 +39,20 @@ section {
 
 .carousel-item {
   min-width: 100%;
-  display: none;
-  height: 100%; 
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  display: none; 
 }
 
 .carousel-item.active {
   display: block;
+  height: 100vh;
+  opacity: 1;
 }
 
 .carousel-item img {
   width: 100%;
   max-width: 100%; 
   height: auto; 
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Flechas de navegación */
@@ -90,16 +97,13 @@ section {
 .scrollContent {
   display: grid;
   width: 25%; /* Ocupa el 25% del ancho */
-  height: 100%;
+  height: 100vh;
   align-items: center;
   overflow-y: auto; /* Permitir scroll vertical */
   box-sizing: border-box;
   -ms-overflow-style: none; /* Ocultar barra de scroll en IE y Edge */
   scrollbar-width: none; /* Ocultar barra de scroll en Firefox */
-}
-
-.scrollContent::-webkit-scrollbar {
-  display: none; /* Ocultar barra de scroll en Chrome, Safari y Opera */
+  scroll-behavior: smooth;
 }
 
 .model {
@@ -108,7 +112,7 @@ section {
   flex-direction: column;
   text-align: center;
   padding-bottom: 5px;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 .model h1 {
@@ -232,6 +236,7 @@ section {
   flex-wrap: nowrap;
   gap: 13px; 
   justify-content: center;
+  margin-bottom: 70px;
 }
 
 footer {
@@ -242,7 +247,7 @@ footer {
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: nowrap;
-  background-color: white; 
+  background-color: transparent; 
   z-index: 1000; 
 }
 
@@ -251,10 +256,11 @@ footer {
   align-items: center;
   justify-content: space-between; /* Asegura que haya un espacio flexible entre los elementos */
   padding: 10px 25px;
-  margin-right: 45px;
+  margin-right: 25px;
   gap: 100px; 
   box-shadow: 0 -2px 8px 0 #cdcecf;
   border-radius: 5px;
+  background-color: white;
 }
 
 .priceOrder button {
@@ -307,3 +313,53 @@ footer {
     background-color: #dee4ebcb;
   }
 }
+
+.selfDrive {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  margin-left: 50px;
+  padding-bottom: 100px;
+}
+
+.selfDrive button {
+  padding: 13px 27px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #f4f4f4;
+  color: #5c5e62;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fullSelf{
+  padding-bottom: 80px;
+}
+
+.selfDrive .p1{
+  font-size: 15px;
+  color: #888a8f;
+  font-weight: 550;
+}
+
+.selfDrive p{
+  font-size: 12.5px;
+  color: #5c5e62;
+}
+
+.driveOption {
+  display: flex;
+  gap: 10px;
+  border: 1px solid #9e9fa1;
+  border-radius: 5px;
+  padding: 18px 20px;
+  color: #5c5e62;
+  margin-bottom: 25px;
+}
+
+.spanDrive :nth-child(1){
+  margin-right: 120px;
+}
+
