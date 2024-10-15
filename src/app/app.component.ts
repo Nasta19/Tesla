@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,22 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private renderer: Renderer2){}
 
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === '/design') {
+          // Añadir clase que deshabilita el scroll
+          this.renderer.addClass(document.body, 'overflow-hidden');
+        } else {
+          // Quitar clase cuando no esté en la ruta /design
+          this.renderer.removeClass(document.body, 'overflow-hidden');
+        }
+      }
+    });
+  }
+  
   lastScrollTop = 0;
   menuClass = 'menu'; // Clase predeterminada del menú
 

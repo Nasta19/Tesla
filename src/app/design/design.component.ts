@@ -24,6 +24,7 @@ export class DesignComponent implements AfterViewInit {
         this.isVideo = false; // Cambiar a imágenes
       }
     });
+    this.autoSlide();
   }
 
   getCars() {
@@ -112,6 +113,8 @@ export class DesignComponent implements AfterViewInit {
   ];
 
   //FUNCIONES VIDEO
+  isEntering = true;
+  isExiting = false;
   isVideo: boolean = false;
   video = [
     { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/autopark_m3.mp4', title: '' },
@@ -123,11 +126,9 @@ export class DesignComponent implements AfterViewInit {
     const docHeight = document.documentElement.scrollHeight; // Altura total del documento
 
     // Comprobar si se ha llegado al final del documento
-    if (scrollTop >= docHeight - 20) { // Un margen de 10px para detectar el final
+    if (scrollTop >= docHeight - 5) { // Un margen de 10px para detectar el final
       this.isVideo = true; // Cambiar a videos
-    } else {
-      this.isVideo = false; // Volver a imágenes
-    }
+    } 
   }
   
   // Cambiar titulo al color elegido 
@@ -182,14 +183,13 @@ export class DesignComponent implements AfterViewInit {
     this.currentSlide = index;
   }
 
-  // Deslizar automáticamente cada 5 segundos
-  /*
+  // Deslizar automáticamente cada 20 segundos
   autoSlide(): void {
     setInterval(() => {
       this.nextSlide();
     }, 20000);
   }
-  */
+  
 
   // Esconder y aparecer controles del slide
   isControlShow = false;
@@ -320,6 +320,34 @@ export class DesignComponent implements AfterViewInit {
 
   toggleDriveOption() {
     this.sumTotal();
+  }
+
+  // POP UP 
+  isPopupOpen = false;
+  popupSlides = [
+    { src: 'url1', title: 'Slide 1' },
+    { src: 'url2', title: 'Slide 2' },
+    { src: 'url3', title: 'Slide 3' },
+  ];
+  currentPopupSlide = 0;
+
+  // Funciones para abrir/cerrar el pop-up
+  openPopup() {
+    this.isPopupOpen = true;
+  }
+
+  closePopup() {
+    this.isPopupOpen = false;
+  }
+
+  // Navegación entre slides
+  prevPopupSlide() {
+    this.currentPopupSlide =
+      (this.currentPopupSlide - 1 + this.popupSlides.length) % this.popupSlides.length;
+  }
+
+  nextPopupSlide() {
+    this.currentPopupSlide = (this.currentPopupSlide + 1) % this.popupSlides.length;
   }
 }
 
