@@ -11,6 +11,8 @@ import { DesignComponent } from './design/design.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { FormsModule } from '@angular/forms';
     ChargingComponent,
     EnergyComponent,
     DesignComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [CarService, provideAnimationsAsync()],
   bootstrap: [AppComponent]

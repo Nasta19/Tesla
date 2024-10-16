@@ -172,7 +172,7 @@
             >Include est. 5-year gas savings of $6,500</label
           >
         </div>
-        <button class="bttnPopup" (click)="openPopup()">Feature Details</button>
+        <button class="bttnPopup" (click)="openPopupFromDesign()">Feature Details</button>
         <div class="textColors">
           <p #colorsPrice>Included</p>
           <span class="colorName" #colorsName>Stealth Grey</span>
@@ -285,26 +285,7 @@
     </div>
   </div>
   <!-- Pop-up con Sliders -->
-  <div class="popup-container" *ngIf="isPopupOpen">
-    <div class="popup-content">
-      <button class="close-button" (click)="closePopup()">X</button>
-      <div class="popup-carousel">
-        <div
-          class="carousel-item"
-          *ngFor="let item of popupSlides; let i = index"
-          [class.active]="i === currentPopupSlide"
-        >
-          <img [src]="item.src" alt="{{ item.title }}" class="d-block w-100" />
-        </div>
-        <button class="carousel-control prev" (click)="prevPopupSlide()">
-          &#10094;
-        </button>
-        <button class="carousel-control next" (click)="nextPopupSlide()">
-          &#10095;
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-popup></app-popup>
 </section>
 <footer>
   <div class="buttonMsg">

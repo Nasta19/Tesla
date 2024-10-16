@@ -1,0 +1,118 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.item-slider-container {
+    display: flex;
+    width: 100%;
+    /* Ajusta este valor según sea necesario */
+    height: 100%;
+    /* Ajusta este valor según sea necesario */
+    position: relative;
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.card {
+    align-self: center;
+    width: 880px;
+    height: 540px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute;
+    display: flex;
+}
+
+.card img {
+    width: 60%;
+    height: auto;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.cardInfo {
+    margin-top: 50px;
+    text-align: left;
+    padding: 15px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #393c41;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.left-side {
+    transform: translateX(-110%);
+    filter: brightness(.5);
+}
+
+.right-side {
+    transform: translateX(110%);
+    filter: brightness(.5);
+}
+
+.center-card {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.left-arrow,
+.right-arrow {
+    cursor: pointer;
+    font-size: 4em;
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    color: white;
+    background-color: #555353e0;
+}
+
+.left-arrow {
+    position: absolute;
+    left: 4rem;
+    /* Ajusta el espaciado si es necesario */
+}
+
+.right-arrow {
+    position: absolute;
+    right: 4rem;
+    /* Ajusta el espaciado si es necesario */
+}
+
+.is-disabled-hide {
+    visibility: hidden;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+<div class="popup-container" *ngIf="isPopupOpen">
+  <div class="item-slider-container">
+    <!-- Flechas de navegación -->
+    <div
+      (click)="slide(-1)"
+      [ngClass]="{ 'is-disabled-hide': currentIndex === 0 }"
+      class="left-arrow"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+
+    <!-- Cards individuales -->
+    <div class="item-container">
+      <div
+        *ngFor="let card of cards; let i = index"
+        [ngClass]="{
+          'left-side': i < currentIndex,
+          'right-side': i > currentIndex,
+          'center-card': i === currentIndex
+        }"
+        class="card"
+      >
+        <img [src]="card.image" alt="Image for {{ card.title }}" />
+        <div class="cardInfo">
+          <!-- Botón de cerrar dentro de la card -->
+          <button class="close-button" (click)="closePopup()">X</button>
+          <h2>{{ card.title }}</h2>
+          <p>{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flechas de navegación -->
+    <div
+      (click)="slide(1)"
+      [ngClass]="{ 'is-disabled-hide': currentIndex === cards.length - 1 }"
+      class="right-arrow"
+    >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </div>
+  </div>
+</div>

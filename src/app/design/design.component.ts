@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer2, HostListener, AfterViewInit } from '@angular/core';
 import { CarService } from '../services/car.service'
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-design',
@@ -322,32 +323,21 @@ export class DesignComponent implements AfterViewInit {
     this.sumTotal();
   }
 
-  // POP UP 
-  isPopupOpen = false;
-  popupSlides = [
-    { src: 'url1', title: 'Slide 1' },
-    { src: 'url2', title: 'Slide 2' },
-    { src: 'url3', title: 'Slide 3' },
-  ];
-  currentPopupSlide = 0;
+   // POP UP controlar desde este component (design)
+   @ViewChild(PopupComponent) popup!: PopupComponent;
 
-  // Funciones para abrir/cerrar el pop-up
-  openPopup() {
-    this.isPopupOpen = true;
-  }
+   openPopupFromDesign() {
+     this.popup.openPopup();
+   }
 
-  closePopup() {
-    this.isPopupOpen = false;
-  }
+   isPopupOpen = false;
 
-  // Navegación entre slides
-  prevPopupSlide() {
-    this.currentPopupSlide =
-      (this.currentPopupSlide - 1 + this.popupSlides.length) % this.popupSlides.length;
-  }
-
-  nextPopupSlide() {
-    this.currentPopupSlide = (this.currentPopupSlide + 1) % this.popupSlides.length;
-  }
+   // Funciones para abrir/cerrar el pop-up
+   openPopup() {
+     this.isPopupOpen = true;
+   }
+ 
+   closePopup() {
+     this.isPopupOpen = false;
+   }
 }
-
