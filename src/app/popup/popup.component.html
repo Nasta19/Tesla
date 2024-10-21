@@ -14,9 +14,9 @@
       <div
         *ngFor="let card of cards; let i = index"
         [ngClass]="{
-          'left-side': i < currentIndex,
-          'right-side': i > currentIndex,
-          'center-card': i === currentIndex
+          'center-card': i === currentIndex,
+          'left-side': i < currentIndex ,
+          'right-side': i > currentIndex
         }"
         class="card"
       >

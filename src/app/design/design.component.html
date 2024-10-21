@@ -30,13 +30,14 @@
           >
             <ng-container *ngIf="isVideo; else imageSlide">
               <video
+                #videoPlayer
                 [ngClass]="{ enter: isEntering, exit: isExiting }"
                 [src]="slide.src"
-                controls
-                autoplay
+                [attr.controls]="true"
+                [attr.muted]="true"
+                [attr.autoplay]="true"
                 class="d-block w-100"
                 width="100%"
-                autoplay
               >
                 Your browser does not support the video tag.
               </video>
@@ -172,7 +173,9 @@
             >Include est. 5-year gas savings of $6,500</label
           >
         </div>
-        <button class="bttnPopup" (click)="openPopupFromDesign()">Feature Details</button>
+        <button class="bttnPopup" (click)="openPopupFromDesign()">
+          Feature Details
+        </button>
         <div class="textColors">
           <p #colorsPrice>Included</p>
           <span class="colorName" #colorsName>Stealth Grey</span>

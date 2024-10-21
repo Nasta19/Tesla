@@ -122,13 +122,22 @@ export class DesignComponent implements AfterViewInit {
     { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/lane_change_m3.mp4', title: '' },
     { src: 'https://digitalassets.tesla.com/co1n/video/upload/f_auto:video,q_auto:best/prod/static_assets/MODEL3_/UI/navigate-on-autopilot-m3.mp4', title: '' },
   ];
+
+  @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef;
   onScroll(): void {
     const scrollTop = window.scrollY + window.innerHeight; // Obtener la posición actual del scroll
     const docHeight = document.documentElement.scrollHeight; // Altura total del documento
 
     // Comprobar si se ha llegado al final del documento
-    if (scrollTop >= docHeight - 5) { // Un margen de 10px para detectar el final
+    if (scrollTop >= docHeight - 10) { // Un margen de 10px para detectar el final
       this.isVideo = true; // Cambiar a videos
+      setTimeout(() => {
+        if (this.isVideo && this.videoPlayer) {
+          this.videoPlayer.nativeElement.play();
+        }
+      }, 0);
+    } else {
+      this.isVideo = false; // Cambiar a imágenes
     } 
   }
   
