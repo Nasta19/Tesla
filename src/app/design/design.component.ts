@@ -129,7 +129,7 @@ export class DesignComponent implements AfterViewInit {
     const docHeight = document.documentElement.scrollHeight; // Altura total del documento
 
     // Comprobar si se ha llegado al final del documento
-    if (scrollTop >= docHeight - 10) { // Un margen de 10px para detectar el final
+    if (scrollTop >= docHeight) { // Un margen de 10px para detectar el final
       this.isVideo = true; // Cambiar a videos
       setTimeout(() => {
         if (this.isVideo && this.videoPlayer) {
