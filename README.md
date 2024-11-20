@@ -1,27 +1,54 @@
-# Frontend
+# Tesla Clone Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+This is a **Tesla-inspired web application** created to demonstrate my front-end development skills. The project replicates the design and functionality of Tesla's website, focusing on **Home** and **Single Product (Car Design and Modification)** pages. It showcases the use of **Angular** for the front end, **Express.js** for the backend, and **MongoDB** for the database.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### Front-End
+- **Home Page**:
+  - High-quality visuals and interactive elements.
+- **Single Product Page**:
+  - Detailed car customization options.
+  - Dynamic updates reflecting selected configurations.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Back-End
+- Built with **Express.js** to serve APIs for handling:
+  - Fetching product data.
 
-## Build
+### Database
+- **MongoDB** used for:
+  - Storing car details.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Tech Stack
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Front-End
+- **Framework**: Angular
+- **Styling**: CSS
 
-## Running end-to-end tests
+### Back-End
+- **Framework**: Express.js (Node.js)
+- **API Integration**: RESTful services
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Database
+- **Database**: MongoDB
+- **ODM**: Mongoose
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Usage
+- Navigate to the Home Page to see the replica of Tesla's design.
+- Go to a Single Product Page to customize a car and view the dynamic changes.
+
+Project Goals
+This project was developed to:
+- Test and improve my front-end skills by replicating a real-world, high-quality design.
+- Demonstrate my ability to integrate Angular with a backend server and database.
+- Showcase of interactive elements.
+
+License
+- This project is for educational purposes and is not affiliated with Tesla, Inc. in any way.
