@@ -49,3 +49,6 @@ This project was developed to:
 - Test and improve my front-end skills by replicating a real-world, high-quality design.
 - Demonstrate my ability to integrate Angular with a backend server and database.
 - Showcase of interactive elements.
+
+License
+- This project is for educational purposes and is not affiliated with Tesla, Inc. in any way.
